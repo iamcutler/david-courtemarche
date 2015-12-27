@@ -1,2 +1,3 @@
-# david-courtemarche
-David Courtemarche
+# DavidCourtemarche
+
+a [Sails](http://sailsjs.org) application
