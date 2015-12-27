@@ -1,7 +1,10 @@
-(function(angular) {
-  'use strict';
+'use strict';
 
-  angular.module('DavidCourtemarche', [
-    'ui.router'
-  ]);
-})(angular);
+angular.module('DavidCourtemarche.controllers', []);
+angular.module('DavidCourtemarche.services', []);
+
+angular.module('DavidCourtemarche', [
+  'DavidCourtemarche.controllers',
+  'DavidCourtemarche.services',
+  'ui.router'
+]);

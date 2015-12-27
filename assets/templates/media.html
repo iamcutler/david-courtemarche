@@ -1,0 +1,9 @@
+<div ng-init="MediaCtrl.initialize()">
+  <section id="media-player">
+    <media-player title="video title via scoped"></media-player>
+  </section>
+
+  <section id="previous-media">
+    <video-thumb title="video.name" img="" ng-repeat="video in MediaCtrl.media"></video-thumb>
+  </section>
+</div>
