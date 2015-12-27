@@ -19,7 +19,7 @@ module.exports = {
 
     Media.find(query).exec(function findAllMedia(err, media) {
       if(err) {
-        sails.log.info(err);
+        sails.log.error(err); // Log exception
         return res.serverError(err);
       }
 
@@ -32,7 +32,7 @@ module.exports = {
 
     Media.findOne({ id: id }).exec(function findMedia(err, media) {
       if(err) {
-        sails.log.info(err);
+        sails.log.error(err); // Log exception
         return res.serverError(err);
       }
 
