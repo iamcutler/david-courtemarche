@@ -28,6 +28,12 @@ module.exports = {
       defaultsTo: 'commercial'
     },
 
+    archive: {
+      type: 'integer',
+      required: true,
+      defaultsTo: 0
+    },
+
     order: {
       type: 'integer',
       required: true,

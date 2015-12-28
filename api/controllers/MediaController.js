@@ -8,13 +8,16 @@
 module.exports = {
   // e.g. /media
   find: function(req, res) {
-    var query = { sort: 'order' };
+    var query = {
+      where: {
+        archive: req.query.archive || 0
+      },
+      sort: 'order'
+    };
 
     // check if type query param is passed
     if(req.query.type) {
-      query.where = {
-        media_type: req.query.type
-      };
+      query.where.media_type = req.query.type;
     }
 
     Media.find(query).exec(function findAllMedia(err, media) {
