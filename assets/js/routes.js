@@ -12,5 +12,11 @@ angular.module('DavidCourtemarche')
       controller: 'MediaController',
       controllerAs: 'MediaCtrl',
       templateUrl: "templates/media.html"
+    })
+    .state('clients', {
+      url: '/clients',
+      controller: 'ClientController',
+      controllerAs: 'ClientCtrl',
+      templateUrl: 'templates/clients.html'
     });
 });

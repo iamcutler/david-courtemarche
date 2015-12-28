@@ -1,13 +1,15 @@
 'use strict';
 
-angular.module('DavidCourtemarche')
+angular.module('DavidCourtemarche.directives')
   .directive('videoThumb', VideoThumb);
 
 function VideoThumb() {
   return {
     restrict: 'E',
     replace: true,
-    scope: {},
+    scope: {
+      title: '='
+    },
     template: `
       <a href="">
         <figure>
@@ -15,7 +17,7 @@ function VideoThumb() {
             <img src="https://johnero.files.wordpress.com/2012/09/usher-dive-082412.jpg">
           </div>
 
-          <figcaption>Usher - Dive</figcaption>
+          <figcaption>{{ title }}</figcaption>
         </figure>
       </a>
     `

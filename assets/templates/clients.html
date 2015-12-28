@@ -1,0 +1,44 @@
+<div ng-init="ClientCtrl.getClients()">
+  <section class="client-list">
+    <header>
+      <h3>Commercials</h3>
+      <span>Partial List</span>
+    </header>
+
+    <client-list list="ClientCtrl.clients | filter:{'client_type': 'commercials'}"></client-list>
+  </section>
+
+  <section class="client-list">
+    <header>
+      <h3>Music Videos</h3>
+      <span>Partial List</span>
+    </header>
+
+    <client-list list="ClientCtrl.clients | filter:{'client_type': 'music_videos'}"></client-list>
+  </section>
+
+  <section class="client-list">
+    <header>
+      <h3>Directors</h3>
+      <span>Partial List</span>
+    </header>
+
+    <client-list list="ClientCtrl.clients | filter:{'client_type': 'director'}"></client-list>
+  </section>
+
+  <section class="client-list">
+    <header>
+      <h3>Awards</h3>
+      <span>Partial List</span>
+    </header>
+
+    <client-list list="ClientCtrl.clients | filter:{'client_type': 'awards'}"></client-list>
+
+    <header>
+      <h3>Photographers</h3>
+      <span>Partial List</span>
+    </header>
+
+    <client-list list="ClientCtrl.clients | filter:{'client_type': 'photographer'}"></client-list>
+  </section>
+</div>

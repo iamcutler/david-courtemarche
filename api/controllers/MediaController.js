@@ -23,7 +23,7 @@ module.exports = {
         return res.serverError(err);
       }
 
-      return res.json(media);
+      res.ok(media);
     });
   },
   // e.g. /media/:id
@@ -36,7 +36,7 @@ module.exports = {
         return res.serverError(err);
       }
 
-      return res.json(media);
+      res.ok(media);
     });
   }
 };

@@ -11,16 +11,33 @@ html, body {
 
 // Header
 header.main {
+  margin-top: 12px;
   margin-bottom: 10px;
 
+  h1, h2 {
+    margin: 0;
+    padding: 0;
+  }
+
   menu {
+    padding: 0;
     border-top: #CCC 1px solid;
     border-bottom: #CCC 1px solid;
 
     ul {
+      padding: 0;
+
       li {
         list-style: none;
+        margin-right: 10px;
         display: inline-block;
+
+        a:link, a:visited {
+          color: #FFF;
+          font-size: 12px;
+          text-decoration: none;
+          text-transform: uppercase;
+        }
       }
     }
   }

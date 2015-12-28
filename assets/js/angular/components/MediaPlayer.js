@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('DavidCourtemarche')
+angular.module('DavidCourtemarche.directives')
   .directive('mediaPlayer', MediaPlayer);
 
 function MediaPlayer() {
