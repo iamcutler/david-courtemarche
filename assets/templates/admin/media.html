@@ -1,0 +1,28 @@
+<div ng-init="MediaCtrl.initialize()">
+  <div class="pull-right">
+    <button type="button" class="btn btn-info">Upload New Media</button>
+  </div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <td>Name</td>
+      <td>Company</td>
+      <td>Director</td>
+      <td>Type</td>
+      <td>Actions</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="media in MediaCtrl.media">
+      <td>{{ media.name }}</td>
+      <td>{{ media.company }}</td>
+      <td>{{ media.director }}</td>
+      <td>{{ media.media_type.replace('_', ' ') }}</td>
+      <td>
+        <button type="button" class="btn btn-danger">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

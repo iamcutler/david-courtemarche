@@ -1,3 +1,6 @@
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:400,300);
+@import 'variables';
+
 html, body {
   background: #000;
   width: 100%;
@@ -14,7 +17,19 @@ header.main {
   margin-top: 12px;
   margin-bottom: 10px;
 
+  h1 {
+    color: @font-gray-primary;
+    font-size: 30px;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
   h1, h2 {
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 300;
     margin: 0;
     padding: 0;
   }
@@ -37,6 +52,11 @@ header.main {
           font-size: 12px;
           text-decoration: none;
           text-transform: uppercase;
+          transition: color 0.2s ease-in-out;
+
+          &:hover {
+            color: @font-gray-primary;
+          }
         }
       }
     }

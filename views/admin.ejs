@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>David Courtemarche Admin</title>
+
+  <!-- Viewport mobile tag for sensible mobile support -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+
+  <!--
+      Stylesheets and Preprocessors
+      ==============================
+
+      You can always bring in CSS files manually with `<link>` tags, or asynchronously
+      using a solution like AMD (RequireJS).  Or, if you like, you can take advantage
+      of Sails' conventional asset pipeline (boilerplate Gruntfile).
+
+      By default, stylesheets from your `assets/styles` folder are included
+      here automatically (between STYLES and STYLES END). Both CSS (.css) and LESS (.less)
+      are supported. In production, your styles will be minified and concatenated into
+      a single file.
+
+      To customize any part of the built-in behavior, just edit `tasks/pipeline.js`.
+      For example, here are a few things you could do:
+
+          + Change the order of your CSS files
+          + Import stylesheets from other directories
+          + Use a different or additional preprocessor, like SASS, SCSS or Stylus
+  -->
+
+  <link rel="stylesheet" href="/styles/bootstrap/bootstrap-theme.css">
+  <link rel="stylesheet" href="/styles/bootstrap/bootstrap-theme.min.css">
+  <link rel="stylesheet" href="/styles/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="/styles/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="/styles/admin.css">
+</head>
+
+<body>
+  <div ng-app="DavidCourtemarcheAdmin">
+    <ng-include src="'templates/partials/admin/header.partial.html'"></ng-include>
+
+    <div class="container">
+      <ui-view></ui-view>
+    </div>
+  </div>
+
+  <!--SCRIPTS-->
+  <script src="/js/dependencies/sails.io.js"></script>
+  <script src="/js/dependencies/angular/angular.min.js"></script>
+  <script src="/js/dependencies/angular/angular-ui-router.min.js"></script>
+  <script src="/js/dependencies/bootstrap/bootstrap.min.js"></script>
+  <script src="/js/dependencies/flowplayer/embed.min.js"></script>
+  <script src="/js/dependencies/flowplayer/flowplayer.min.js"></script>
+  <script src="/js/dependencies/jquery-1.11.3.min.js"></script>
+  <script src="/js/main.js"></script>
+  <script src="/js/admin.js"></script>
+  <script src="/js/admin-routes.js"></script>
+  <script src="/js/angular/components/ClientList.js"></script>
+  <script src="/js/angular/components/MainHeader.js"></script>
+  <script src="/js/angular/components/MediaPlayer.js"></script>
+  <script src="/js/angular/components/VideoThumb.js"></script>
+  <script src="/js/angular/controllers/Client.js"></script>
+  <script src="/js/angular/controllers/ClientAdmin.js"></script>
+  <script src="/js/angular/controllers/Media.js"></script>
+  <script src="/js/angular/controllers/MediaAdmin.js"></script>
+  <script src="/js/angular/services/Client.js"></script>
+  <script src="/js/angular/services/Common.js"></script>
+  <script src="/js/angular/services/Media.js"></script>
+  <script src="/js/routes.js"></script>
+  <!--SCRIPTS END-->
+</body>
+</html>

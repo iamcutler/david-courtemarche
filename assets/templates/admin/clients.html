@@ -1,0 +1,24 @@
+<div ng-init="ClientCtrl.getClients()">
+  <div class="pull-right">
+    <button type="button" class="btn btn-info">Upload New Media</button>
+  </div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <td>Name</td>
+      <td>Type</td>
+      <td>Actions</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="client in ClientCtrl.clients">
+      <td>{{ client.name }}</td>
+      <td>{{ client.client_type.replace('_', ' ') }}</td>
+      <td>
+        <button type="button" class="btn btn-danger" ng-click="ClientCtrl.remove(client.id, $index)">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

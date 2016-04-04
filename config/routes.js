@@ -34,7 +34,7 @@ module.exports.routes = {
 
   '/': {
     view: 'application'
-  }
+  },
 
   /***************************************************************************
   *                                                                          *
@@ -45,5 +45,10 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-
+  '/admin': {
+    view: 'admin',
+    locals: {
+      layout: 'admin'
+    }
+  }
 };
