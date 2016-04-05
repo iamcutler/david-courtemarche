@@ -1,0 +1,35 @@
+<form name="NewMediaForm" ng-submit="MediaCtrl.insert()">
+  <div class="form-group">
+    <label for="mediaName">Name <span style="color: red">*</span></label>
+    <input type="text" class="form-control" id="mediaName" ng-model="MediaCtrl.new.name" required>
+  </div>
+
+  <div class="form-group">
+    <label for="mediaCompany">Company</label>
+    <input type="text" class="form-control" id="mediaCompany" ng-model="MediaCtrl.new.company">
+  </div>
+
+  <div class="form-group">
+    <label for="mediaDirector">Director <span style="color: red">*</span></label>
+    <input type="text" class="form-control" id="mediaDirector" ng-model="MediaCtrl.new.director" required>
+  </div>
+
+  <div class="form-group">
+    <label for="mediaType">Type <span style="color: red">*</span></label>
+    <select class="form-control" id="mediaType" ng-model="MediaCtrl.new.media_type" required>
+      <option value="">Select:</option>
+      <option value="awards">Award</option>
+      <option value="commercials">Commercial</option>
+      <option value="director">Director</option>
+      <option value="music_videos">Music Video</option>
+      <option value="photographer">Photographer</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="mediaArchive">Archive</label>
+    <input type="checkbox" id="mediaArchive" ng-model="MediaCtrl.new.archive">
+  </div>
+
+  <button type="submit" class="btn btn-success pull-right" ng-disabled="NewMediaForm.$invalid">Submit</button>
+</form>

@@ -13,6 +13,8 @@ function MediaAdminController(MediaService) {
   vm.media = [];
   // functions
   vm.initialize = initialize;
+  vm.new = {}; // new media object
+  vm.remove = remove;
 
   function initialize() {
     getAllMedia();
@@ -23,5 +25,14 @@ function MediaAdminController(MediaService) {
       .then(response => {
         vm.media = response;
       });
+  }
+
+  function remove(id, index) {
+    if(confirm('Are you sure you want to remove this media?')) {
+      MediaService.remove(id)
+        .then(function() {
+          vm.media.splice(index, 1);
+        });
+    }
   }
 }

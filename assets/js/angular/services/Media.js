@@ -4,6 +4,11 @@ angular.module('DavidCourtemarche.services')
   .factory('MediaService', MediaService);
 
 function MediaService($http, CommonService) {
+  return {
+    getByType: getByType,
+    remove: remove
+  };
+
   function getByType(type, archive) {
     archive = archive || 0;
 
@@ -16,7 +21,8 @@ function MediaService($http, CommonService) {
       .then(CommonService.handleHttpResponse('Something went wrong while getting media'));
   }
 
-  return {
-    getByType: getByType
-  };
+  function remove(id) {
+    return $http.delete('/api/media/' + id)
+      .then(CommonService.handleHttpResponse('Something went wrong removing media'));
+  }
 }

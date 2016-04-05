@@ -3,12 +3,14 @@
 angular.module('DavidCourtemarcheAdmin.controllers')
   .controller('ClientAdminController', ClientAdminController);
 
-function ClientAdminController(ClientService) {
+function ClientAdminController($state, ClientService) {
   var vm = this;
 
   vm.clients = [];
   // functions
   vm.getClients = getClients;
+  vm.insert = insert;
+  vm.new = {}; // new client object
   vm.remove = remove;
 
   function getClients() {
@@ -18,6 +20,13 @@ function ClientAdminController(ClientService) {
       })
       .catch(function(err) {
         console.log(err);
+      });
+  }
+
+  function insert() {
+    ClientService.insert(vm.new)
+      .then(function() {
+        $state.go('clients.index');
       });
   }
 

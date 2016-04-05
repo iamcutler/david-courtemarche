@@ -13,15 +13,41 @@ angular.module('DavidCourtemarcheAdmin')
     $stateProvider
       .state('media', {
         url: "/media",
-        controller: 'MediaAdminController',
-        controllerAs: 'MediaCtrl',
-        templateUrl: "templates/admin/media.html"
+        abstract: true,
+        template: '<ui-view></ui-view>'
       })
+        .state('media.index', {
+          url: '',
+          controller: 'MediaAdminController',
+          controllerAs: 'MediaCtrl',
+          templateUrl: 'templates/admin/media.html',
+          parent: 'media'
+        })
+        .state('media.new', {
+          url: '/new',
+          controller: 'MediaAdminController',
+          controllerAs: 'MediaCtrl',
+          templateUrl: 'templates/admin/media.new.html',
+          parent: 'media'
+        })
       .state('clients', {
         url: '/clients',
-        controller: 'ClientAdminController',
-        controllerAs: 'ClientCtrl',
-        templateUrl: 'templates/admin/clients.html'
-      });
+        abstract: true,
+        template: '<ui-view></ui-view>'
+      })
+        .state('clients.index', {
+          url: '',
+          controller: 'ClientAdminController',
+          controllerAs: 'ClientCtrl',
+          templateUrl: 'templates/admin/clients.html',
+          parent: 'clients'
+        })
+        .state('clients.new', {
+          url: '/new',
+          controller: 'ClientAdminController',
+          controllerAs: 'ClientCtrl',
+          templateUrl: 'templates/admin/client.new.html',
+          parent: 'clients'
+        });
   });
 

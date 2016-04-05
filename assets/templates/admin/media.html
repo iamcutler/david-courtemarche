@@ -1,6 +1,6 @@
 <div ng-init="MediaCtrl.initialize()">
   <div class="pull-right">
-    <button type="button" class="btn btn-info">Upload New Media</button>
+    <a ui-sref="media.new" class="btn btn-info">Upload New Media</a>
   </div>
 
   <table class="table">
@@ -20,7 +20,7 @@
       <td>{{ media.director }}</td>
       <td>{{ media.media_type.replace('_', ' ') }}</td>
       <td>
-        <button type="button" class="btn btn-danger">Remove</button>
+        <button type="button" class="btn btn-danger" ng-click="MediaCtrl.remove(media.id, $index)">Remove</button>
       </td>
     </tr>
     </tbody>
