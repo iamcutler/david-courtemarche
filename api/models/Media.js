@@ -21,6 +21,11 @@ module.exports = {
       type: 'string'
     },
 
+    media_file: {
+      type: 'string',
+      required: true
+    },
+
     media_type: {
       type: 'string',
       required: true,
@@ -36,9 +41,23 @@ module.exports = {
 
     order: {
       type: 'integer',
-      required: true,
-      autoIncrement: true,
-      unique: true
+      autoIncrement: true
+    }
+  },
+
+  // add auto increment value for "order" before create a document
+  beforeCreate: function(obj, next) {
+    if(!obj['order']) {
+      Media.count().exec(function(err, cnt) {
+        if(err) {
+          next(err);
+        } else {
+          obj['order'] = cnt + 1;
+          next(null);
+        }
+      });
+    } else {
+      next(null);
     }
   }
 };

@@ -45,6 +45,7 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
+  'POST /media/upload': 'MediaController.upload',
   '/admin': {
     view: 'admin',
     locals: {

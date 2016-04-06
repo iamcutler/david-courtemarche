@@ -6,6 +6,7 @@ angular.module('DavidCourtemarche.services')
 function MediaService($http, CommonService) {
   return {
     getByType: getByType,
+    insert: insert,
     remove: remove
   };
 
@@ -19,6 +20,11 @@ function MediaService($http, CommonService) {
       }
     })
       .then(CommonService.handleHttpResponse('Something went wrong while getting media'));
+  }
+
+  function insert(media) {
+    return $http.post('/api/media/', media)
+      .then(CommonService.handleHttpResponse('Something went wrong inserting media'));
   }
 
   function remove(id) {

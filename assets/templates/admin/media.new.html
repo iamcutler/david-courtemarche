@@ -1,4 +1,4 @@
-<form name="NewMediaForm" ng-submit="MediaCtrl.insert()">
+<form name="NewMediaForm" ng-submit="MediaCtrl.submit()">
   <div class="form-group">
     <label for="mediaName">Name <span style="color: red">*</span></label>
     <input type="text" class="form-control" id="mediaName" ng-model="MediaCtrl.new.name" required>
@@ -18,12 +18,15 @@
     <label for="mediaType">Type <span style="color: red">*</span></label>
     <select class="form-control" id="mediaType" ng-model="MediaCtrl.new.media_type" required>
       <option value="">Select:</option>
-      <option value="awards">Award</option>
-      <option value="commercials">Commercial</option>
-      <option value="director">Director</option>
-      <option value="music_videos">Music Video</option>
-      <option value="photographer">Photographer</option>
+      <option value="commercial">Commercial</option>
+      <option value="music_video">Music Video</option>
+      <option value="film">Film</option>
     </select>
+  </div>
+
+  <div class="form-group">
+    <label for="mediaUpload">File Upload (.mp4) <span style="color: red">*</span></label>
+    <input type="file" id="mediaUpload" ngf-select ng-model="MediaCtrl.file" required>
   </div>
 
   <div class="form-group">
@@ -31,5 +34,6 @@
     <input type="checkbox" id="mediaArchive" ng-model="MediaCtrl.new.archive">
   </div>
 
-  <button type="submit" class="btn btn-success pull-right" ng-disabled="NewMediaForm.$invalid">Submit</button>
+  <button type="submit" class="btn btn-success pull-right" ng-disabled="NewMediaForm.$invalid || MediaCtrl.isSubmitting">Submit</button>
+  <img class="pull-right" style="margin: 5px 20px;" src="/images/ajax-loader.gif" ng-if="MediaCtrl.isSubmitting">
 </form>

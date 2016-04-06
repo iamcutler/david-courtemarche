@@ -41,6 +41,21 @@ module.exports = {
 
       res.ok(media);
     });
+  },
+  // e.g. /media/upload
+  upload: function(req, res) {
+    req.file('media').upload({
+      adapter: require('skipper-s3'),
+      key: '',
+      secret: '',
+      bucket: ''
+    }, function (err, filesUploaded) {
+      if (err) return res.negotiate(err);
+      return res.ok({
+        files: filesUploaded,
+        textParams: req.params.all()
+      });
+    });
   }
 };
 
