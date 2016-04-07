@@ -42,20 +42,43 @@ module.exports = {
       res.ok(media);
     });
   },
-  // e.g. /media/upload
-  upload: function(req, res) {
-    req.file('media').upload({
+  // e.g. /media/upload/file
+  uploadMediaFile: function(req, res) {
+    req.file('file').upload({
       adapter: require('skipper-s3'),
-      key: '',
-      secret: '',
-      bucket: ''
+      key: sails.config.aws.key,
+      secret: sails.config.aws.secret,
+      bucket: sails.config.aws.bucket
     }, function (err, filesUploaded) {
       if (err) return res.negotiate(err);
+
       return res.ok({
         files: filesUploaded,
         textParams: req.params.all()
       });
     });
+  },
+  // e.g. /media/upload/image
+  uploadMediaImage: function(req, res) {
+    req.file('file').upload({
+      adapter: require('skipper-s3'),
+      key: sails.config.aws.key,
+      secret: sails.config.aws.secret,
+      bucket: sails.config.aws.bucket
+    }, function (err, filesUploaded) {
+      if (err) return res.negotiate(err);
+
+      return res.ok({
+        files: filesUploaded,
+        textParams: req.params.all()
+      });
+    });
+  },
+  serveImageAsset: function(req, res) {
+    var request = require('request');
+    var image_path = 'http://' + sails.config.aws.bucket + '.s3-website-us-east-1.amazonaws.com/' + req.params.id;
+
+    request.get(image_path).pipe(res);
   }
 };
 

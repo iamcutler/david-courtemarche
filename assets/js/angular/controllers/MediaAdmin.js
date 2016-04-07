@@ -40,13 +40,14 @@ function MediaAdminController($state, MediaService, UploadService) {
   }
 
   function submit() {
-    if (UploadService.checkForValidFileType(vm.file.name)) {
+    if (UploadService.checkForValidFileType(vm.file.name) && UploadService.checkForValidFileType(vm.image.name)) {
       vm.isSubmitting = true;
 
-      UploadService.upload(vm.file)
+      UploadService.uploadFileAndImage(vm.file, vm.image)
         .then(function (resp) {
           // assign to inserting record
-          vm.new.media_file = resp.data.files[0].fd;
+          vm.new.media_file = resp[0].data.files[0].fd;
+          vm.new.media_image = resp[1].data.files[0].fd;
 
           // Insert new record
           MediaService.insert(vm.new)

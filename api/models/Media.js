@@ -26,6 +26,11 @@ module.exports = {
       required: true
     },
 
+    media_image: {
+      type: 'string',
+      required: true
+    },
+
     media_type: {
       type: 'string',
       required: true,

@@ -18,7 +18,7 @@ function VideoThumb() {
       <a href="" ng-click="VideoThumbCtrl.selectVideo()">
         <figure>
           <div class="img">
-            <img src="https://johnero.files.wordpress.com/2012/09/usher-dive-082412.jpg">
+            <img ng-src="/media/images/{{ VideoThumbCtrl.video.media_image }}">
           </div>
 
           <figcaption>{{ VideoThumbCtrl.video.name }}</figcaption>

@@ -7,19 +7,39 @@
 angular.module('DavidCourtemarcheAdmin.services')
   .factory('UploadService', UploadService);
 
-function UploadService(Upload) {
+function UploadService($q, Upload) {
   return {
     checkForValidFileType: checkForValidFileType,
-    upload: upload
+    uploadFile: uploadFile,
+    uploadImage: uploadImage,
+    uploadFileAndImage: uploadFileAndImage
   };
 
-  function upload(file) {
+  function uploadFile(file) {
     return Upload.upload({
-      url: '/api/media/upload',
+      url: '/api/media/upload/file',
       data: {
-        media: file
+        file: file
       }
     });
+  }
+
+  function uploadImage(file) {
+    return Upload.upload({
+      url: '/api/media/upload/image',
+      data: {
+        file: file
+      }
+    });
+  }
+
+  function uploadFileAndImage(file, image) {
+    var files = [];
+
+    files.push(uploadFile(file));
+    files.push(uploadImage(image));
+
+    return $q.all(files);
   }
 
   /**
@@ -32,7 +52,7 @@ function UploadService(Upload) {
   function checkForValidFileType(file, whitelist) {
     if(typeof file !== 'string') return false;
 
-    whitelist = whitelist || ['mp4'];
+    whitelist = whitelist || ['mp4', 'jpg', 'jpeg', 'gif', 'png'];
 
     var extention = file.split('.');
 
