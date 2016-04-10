@@ -18,7 +18,7 @@ function MainHeader() {
             <li><a ui-sref="media({ type: 'commercials' })">Commercials</a></li>
             <li><a ui-sref="media({ type: 'musicvideos' })">Music Videos</a></li>
             <li><a ui-sref="media({ type: 'film' })">Film</a></li>
-            <li><a href="">Portfolio</a></li>
+            <li><a ui-sref="portfolio({ type: 'celebrity' })">Portfolio</a></li>
             <li><a ui-sref="clients">Clients</a></li>
             <li><a href="">Contact</a></li>
           </ul>

@@ -1,0 +1,49 @@
+.portfolio-container {
+  height: 300px;
+  overflow-x: auto;
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      display: inline-block;
+
+      img {
+        height: 300px;
+      }
+    }
+  }
+}
+
+ul.portfolio-links {
+  float: right;
+  margin: 6px 0 0 0;
+  padding: 0;
+
+  li {
+    list-style: none;
+    margin-left: 2px;
+
+    a {
+      &:link, &:visited {
+        color: #FFF;
+        font-size: 14px;
+        border: 1px #FFF solid;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 4px;
+        transition: border 0.4s ease-in-out;
+      }
+
+      &:hover {
+        border-color: #666;
+      }
+
+      &.active {
+        border-color: #666;
+      }
+    }
+  }
+}

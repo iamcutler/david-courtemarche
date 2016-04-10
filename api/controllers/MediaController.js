@@ -64,7 +64,10 @@ module.exports = {
       adapter: require('skipper-s3'),
       key: sails.config.aws.key,
       secret: sails.config.aws.secret,
-      bucket: sails.config.aws.bucket
+      bucket: sails.config.aws.bucket,
+      headers: {
+        'x-amz-acl': 'public-read'
+      }
     }, function (err, filesUploaded) {
       if (err) return res.negotiate(err);
 

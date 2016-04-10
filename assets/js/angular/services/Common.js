@@ -5,6 +5,7 @@ angular.module('DavidCourtemarche.services')
 
 function CommonService($q) {
   return {
+    assetUrl: assetUrl,
     handleHttpResponse: handleHttpResponse
   };
 
@@ -22,5 +23,9 @@ function CommonService($q) {
 
       return response.data;
     }
+  }
+
+  function assetUrl(id) {
+    return `/media/assets/${id}`;
   }
 }

@@ -18,5 +18,11 @@ angular.module('DavidCourtemarche')
       controller: 'ClientController',
       controllerAs: 'ClientCtrl',
       templateUrl: 'templates/clients.html'
+    })
+    .state('portfolio', {
+      url: '/portfolio/:type',
+      controller: 'PortfolioController',
+      controllerAs: 'PortfolioCtrl',
+      templateUrl: 'templates/portfolio.html'
     });
 });

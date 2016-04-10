@@ -1,0 +1,26 @@
+<div ng-init="PortfolioCtrl.getPortfolio()">
+  <div class="pull-right">
+    <a ui-sref="portfolio.new" class="btn btn-info">New</a>
+  </div>
+
+  <table class="table">
+    <thead>
+    <tr>
+      <td>Image</td>
+      <td>Type</td>
+      <td>Actions</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="image in PortfolioCtrl.images">
+      <td>
+        <img height="80px" ng-src="{{ PortfolioCtrl.assetUrl(image.image) }}">
+      </td>
+      <td>{{ image.type }}</td>
+      <td>
+        <button type="button" class="btn btn-danger" ng-click="PortfolioCtrl.remove(image.id, $index)">Remove</button>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

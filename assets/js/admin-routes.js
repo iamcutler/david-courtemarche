@@ -30,6 +30,25 @@ angular.module('DavidCourtemarcheAdmin')
           templateUrl: 'templates/admin/media.new.html',
           parent: 'media'
         })
+      .state('portfolio', {
+        url: '/portfolio',
+        abstract: true,
+        template: '<ui-view></ui-view>'
+      })
+        .state('portfolio.index', {
+          url: '',
+          controller: 'PortfolioAdminController',
+          controllerAs: 'PortfolioCtrl',
+          templateUrl: 'templates/admin/portfolio.html',
+          parent: 'portfolio'
+        })
+        .state('portfolio.new', {
+          url: '/new',
+          controller: 'PortfolioAdminController',
+          controllerAs: 'PortfolioCtrl',
+          templateUrl: 'templates/admin/portfolio.new.html',
+          parent: 'portfolio'
+        })
       .state('clients', {
         url: '/clients',
         abstract: true,

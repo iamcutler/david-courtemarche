@@ -1,0 +1,17 @@
+<div ng-init="PortfolioCtrl.getPortfolio()">
+  <div class="portfolio-container">
+    <ul>
+      <li ng-repeat="image in PortfolioCtrl.portfolio">
+        <img ng-src="{{ PortfolioCtrl.assetUrl(image.image); }}">
+      </li>
+    </ul>
+  </div>
+
+  <ul class="portfolio-links">
+    <li>
+      <a ui-sref="portfolio({ type: 'celebrity' })" ui-sref-active="active">Celebrity</a>
+      <a ui-sref="portfolio({ type: 'advertising' })" ui-sref-active="active">Advertising</a>
+      <a ui-sref="portfolio({ type: 'editorial' })" ui-sref-active="active">Editorial</a>
+    </li>
+  </ul>
+</div>
