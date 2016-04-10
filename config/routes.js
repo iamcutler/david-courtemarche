@@ -45,7 +45,7 @@ module.exports.routes = {
   * for configuration options and examples.                                  *
   *                                                                          *
   ***************************************************************************/
-  'GET /media/images/:id': 'MediaController.serveImageAsset',
+  'GET /media/assets/:id': 'MediaController.serveMediaAsset',
   'POST /api/media/upload/file': 'MediaController.uploadMediaFile',
   'POST /api/media/upload/image': 'MediaController.uploadMediaImage',
   '/admin': {

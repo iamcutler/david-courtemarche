@@ -74,7 +74,7 @@ module.exports = {
       });
     });
   },
-  serveImageAsset: function(req, res) {
+  serveMediaAsset: function(req, res) {
     var request = require('request');
     var image_path = 'http://' + sails.config.aws.bucket + '.s3-website-us-east-1.amazonaws.com/' + req.params.id;
 
