@@ -1,29 +1,31 @@
 'use strict';
 
 angular.module('DavidCourtemarche.directives')
-  .controller('MediaPlayerController', MediaPlayerController)
   .directive('mediaPlayer', MediaPlayer);
 
 function MediaPlayer() {
   return {
     restrict: 'E',
     replace: true,
-    scope: {},
-    controller: 'MediaPlayerController',
-    controllerAs: 'MediaPlayerCtrl',
+    scope: {
+      video: '='
+    },
     template: `
       <div class="media-player">
-        <div class="player"></div>
+        <div html5-video
+             mp4-url="{{ video.videoUrl }}"
+             video-width="500"
+             video-height="500"></div>
 
-        <span class="title">{{ MediaPlayerCtrl.video.name }}</span>
+        <span class="title">{{ video.name }}</span>
       </div>
-    `
+    `,
+    link: (scope) => {
+      scope.$watch('video', (newVal, oldVal) => {
+        if(newVal !== oldVal) {
+          newVal.videoUrl = `http://localhost:1337/media/assets/${newVal.media_file}`;
+        }
+      });
+    }
   };
-}
-
-function MediaPlayerController($rootScope) {
-  // Listen for video changes and display
-  $rootScope.$on('video:selected', (event, video) => {
-    this.video = video;
-  });
 }

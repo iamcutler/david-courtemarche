@@ -30,13 +30,13 @@ var jsFilesToInject = [
   // Dependencies like jQuery, or Angular are brought in here
   'js/dependencies/angular/angular.min.js',
   'js/dependencies/angular/angular-ui-router.min.js',
-  'js/dependencies/**/*.js',
+  'js/dependencies/jquery-1.11.3.min.js',
 
   // All of the rest of your client-side js files
   // will be injected here in no particular order.
   'js/main.js',
   'js/admin.js',
-  'js/**/*.js',
+  'js/**/*.js'
 
   // Use the "exclude" operator to ignore files
   //'!js/*.js'

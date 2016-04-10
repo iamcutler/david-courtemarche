@@ -3,12 +3,16 @@
 angular.module('DavidCourtemarche.controllers')
   .controller('MediaController', MediaController);
 
-function MediaController($stateParams, MediaService) {
+MediaController.$inject = ['$scope', '$stateParams', 'MediaService'];
+
+function MediaController($scope, $stateParams, MediaService) {
   var vm = this;
 
   vm.media = [];
   // functions
   vm.initialize = initialize;
+  vm.selectVideo = selectVideo;
+  vm.loadedVideo = false;
 
   function initialize() {
     getMediaByType();
@@ -32,6 +36,18 @@ function MediaController($stateParams, MediaService) {
     return MediaService.getByType(type)
       .then(response => {
         vm.media = response;
+        vm.currentVideo = response[0];
+      })
+      .finally(vm.loadedVideo = true);
+  }
+
+  function selectVideo(video) {
+    vm.loadedVideo = false;
+    vm.currentVideo = video;
+    setTimeout(() => {
+      $scope.$apply(() => {
+        vm.loadedVideo = true
       });
+    }, 2000);
   }
 }

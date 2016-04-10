@@ -1,9 +1,13 @@
 <div ng-init="MediaCtrl.initialize()">
   <section id="media-player">
-    <media-player></media-player>
+    <div class="video-loader" ng-if="!MediaCtrl.loadedVideo">
+      <img src="images/ajax-loader-black.gif">
+    </div>
+
+    <media-player ng-if="MediaCtrl.loadedVideo" video="MediaCtrl.currentVideo"></media-player>
   </section>
 
   <section id="previous-media">
-    <video-thumb video="video" ng-repeat="video in MediaCtrl.media"></video-thumb>
+    <video-thumb video="video" ng-repeat="video in MediaCtrl.media" ng-click="MediaCtrl.selectVideo(video)"></video-thumb>
   </section>
 </div>
